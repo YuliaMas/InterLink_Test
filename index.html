@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CVS - table</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<header class="header">
+		<h1>Tables</h1>
+	</header>
+	<main class="main">
+		<input type="file" id="uploadfile" onChange="readImage(this)">
+		<button onclick="hideShowTable()" id="hideButton">Hide table</button>
+		<div id="tableCSV"></div>
+		<hr>
+		<div id="tableToCSV">
+			<table>
+				<thead>
+					<tr id="headTable">
+						<th>Name/Date</th>
+					</tr>
+				</thead>
+				<tbody id="dataTable">
+				</tbody>
+			</table>
+		</div>
+
+		<hr>
+
+		<p><b> Click the Download CSV button to download the created data </b></p>
+		<!-- button to call the user-defined function to download CSV file data -->
+		<button onclick="exportTableToCSV('work_hours.csv')"> Export HTML table to CSV File </button>
+	</main>
+	<footer>
+		<div class="footer">
+			<p>&copy; Copyright 2021  Yuliya Masechko</p>
+		</div>
+	</footer>
+	<script>
+		function hideShowTable() {
+			let x = document.getElementById("tableCSV");
+			let but = document.getElementById("hideButton");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+				but.innerText = "Hide table";
+			} else {
+				x.style.display = "none";
+				but.innerText = "Show table";
+			}
+		}
+
+		const tableCSV = document.getElementById("tableCSV");
+		let obj_csv = {
+			size:0,
+			dataFile:[],
+			dataType: 'text',
+		};
+
+		function readImage(input) {
+			console.log(input)
+			if (input.files && input.files[0]) {
+				let reader = new FileReader();
+				reader.readAsBinaryString(input.files[0]);
+				reader.onload = function (e) {
+					console.log(e);
+					obj_csv.size = e.total;
+					obj_csv.dataFile = e.target.result;
+					console.log(obj_csv.dataFile);
+					parseData(obj_csv.dataFile);
+					successFunction(obj_csv.dataFile);
+				}
+			}
+		}
+	</script>
+	<script	src="js/main.js"></script>
+<script src="js/outCSV.js"></script>
+</body>
+</html>
