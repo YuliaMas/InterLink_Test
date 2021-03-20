@@ -1,0 +1,59 @@
+html, body {
+	width: 100vw;
+	height: auto;
+	margin: auto;
+	background: #E5E5E5;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	font-size: 16px;
+	font-family: sans-serif;
+	line-height: 1.7;
+	}
+.wrapper {
+	width: 100%;
+	margin: auto;
+	/*border: 2px solid rgba(160, 12, 12, 0.94);*/
+	height: 100vh;
+	/*background: #f55cf2;*/
+	background: #a8ff78;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	overflow-x: hidden;
+	}
+.header {
+	text-align: center;
+	}
+h1	{
+	font-size: 1.6rem;
+	}
+.main {
+	text-align: center;
+	margin: 30px auto;
+	max-width: 80vw;
+	}
+.footer {
+	height: 20%;
+	text-align: center;
+	margin-top: 20px;
+	border-top: 1px solid white;
+	padding: 15px 0 ;
+	}
+
+table {
+	margin: 0 auto;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #d4d4d4;
+	}
+
+tr:nth-child(even) {
+	background: #d4d4d4;
+	}
+
+th, td {
+	padding: 10px 30px;
+	}
+
+th {
+	border-bottom: 1px solid #d4d4d4;
+	}
