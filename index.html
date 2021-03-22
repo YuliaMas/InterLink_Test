@@ -51,31 +51,9 @@
 				but.innerText = "Show table";
 			}
 		}
-
-		const tableCSV = document.getElementById("tableCSV");
-		let obj_csv = {
-			size:0,
-			dataFile:[],
-			dataType: 'text',
-		};
-
-		function readImage(input) {
-			console.log(input)
-			if (input.files && input.files[0]) {
-				let reader = new FileReader();
-				reader.readAsBinaryString(input.files[0]);
-				reader.onload = function (e) {
-					console.log(e);
-					obj_csv.size = e.total;
-					obj_csv.dataFile = e.target.result;
-					console.log(obj_csv.dataFile);
-					parseData(obj_csv.dataFile);
-					printFileData(obj_csv.dataFile);
-				}
-			}
-		}
 	</script>
 	<script	src="js/main.js"></script>
+	<script	src="js/importCSV.js"></script>
 <script src="js/outCSV.js"></script>
 </body>
 </html>
